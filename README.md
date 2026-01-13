@@ -1,6 +1,6 @@
-# Portfolio - 瀬尾 敦生
+# Me Page
 
-ポートフォリオサイト（静的HTML/CSS/JS）
+自己紹介サイト（静的HTML/CSS/JS）
 
 ## 構成
 
