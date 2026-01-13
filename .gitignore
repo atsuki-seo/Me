@@ -1,0 +1,33 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+.claude/
+*.sublime-project
+*.sublime-workspace
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+dist/
+build/
+.cache/
+
+# Environment & Logs
+.env
+.env.local
+.env.*.local
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+tmpclaude-*
