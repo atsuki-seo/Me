@@ -25,7 +25,7 @@ body {
 }
 
 .resume-container {
-    max-width: 1000px;
+    max-width: 100%;
     margin: 0 auto;
     background: #fff;
     display: flex;
@@ -36,8 +36,8 @@ body {
 }
 
 .sidebar {
-    flex: 1;
-    min-width: 280px;
+    flex: 0 0 480px;
+    min-width: 480px;
     background-color: var(--sidebar-bg);
     color: var(--sidebar-text);
     padding: 40px 30px;
@@ -163,6 +163,11 @@ body {
     border-radius: 50%;
     border: 2px solid #fff;
     box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.timeline-item.active::before {
+    background: #27ae60;
+    box-shadow: 0 0 0 2px #27ae60;
 }
 
 .timeline-date {
