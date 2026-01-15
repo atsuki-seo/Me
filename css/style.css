@@ -313,6 +313,9 @@ body {
     }
     .sidebar {
         padding: 40px 20px;
+        min-width: 100%;
+        flex: none;
+        width: 100%;
     }
     .main-content {
         padding: 40px 20px;
