@@ -300,6 +300,32 @@ body {
     border-bottom: 1px solid #eee;
 }
 
+/* 展開可能メニュー */
+.project-details {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.project-details summary {
+    cursor: pointer;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.project-details summary:hover {
+    text-decoration: underline;
+}
+
+.publication-list {
+    list-style: disc;
+    margin-top: 8px;
+    margin-left: 20px;
+}
+
+.publication-list li {
+    margin-bottom: 5px;
+}
+
 @media (max-width: 768px) {
     .resume-container {
         flex-direction: column;
