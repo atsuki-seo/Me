@@ -282,16 +282,16 @@ body {
     bottom: 50px;
 }
 
-.experience-columns {
+.section-columns {
     display: flex;
     gap: 40px;
 }
 
-.experience-column {
+.section-column {
     flex: 1;
 }
 
-.experience-column-title {
+.section-column-title {
     font-size: 16px;
     color: var(--primary-color);
     margin-bottom: 20px;
@@ -348,7 +348,7 @@ body {
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
-    .experience-columns {
+    .section-columns {
         flex-direction: column;
         gap: 30px;
     }
