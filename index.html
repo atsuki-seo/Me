@@ -58,6 +58,9 @@
 <body>
     <div class="resume-container">
         <aside class="sidebar">
+            <a href="#" id="mail-btn" class="mail-button" aria-label="メールを送る">
+                <i class="fas fa-envelope"></i>
+            </a>
             <img src="assets/images/seo.jpg" alt="プロフィール写真" class="profile-photo">
             <div class="name-section">
                 <h1>瀬尾 敦生</h1>
@@ -358,6 +361,18 @@
     </div>
 
     <div id="toast"></div>
+
+    <div id="mail-modal" class="modal">
+        <div class="modal-content">
+            <h3>お問い合わせ</h3>
+            <p>メールアプリを起動して、<br>お問い合わせを送信しますか？</p>
+            <div class="modal-buttons">
+                <button id="mail-cancel" class="modal-btn modal-btn-cancel">キャンセル</button>
+                <button id="mail-confirm" class="modal-btn modal-btn-confirm">メールアプリ起動</button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
 
 </body>
