@@ -1,15 +1,3 @@
-function showToast(message) {
-    event.preventDefault();
-
-    const toast = document.getElementById("toast");
-    toast.textContent = message;
-    toast.className = "show";
-
-    setTimeout(function(){
-        toast.className = toast.className.replace("show", "");
-    }, 3000);
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     const mailBtn = document.getElementById('mail-btn');
     const modal = document.getElementById('mail-modal');
