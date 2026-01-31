@@ -1,0 +1,53 @@
+baseURL = 'https://me.s-atsuki.jp/'
+languageCode = 'ja'
+title = '瀬尾 敦生 | Seo Atsuki'
+defaultContentLanguage = 'ja'
+disablePathToLower = true
+
+# タクソノミー設定
+[taxonomies]
+  tag = "tags"
+
+# 出力設定
+[outputs]
+  home = ['HTML']
+  section = ['HTML', 'RSS', 'JSON']
+  taxonomy = ['HTML']
+  term = ['HTML']
+
+# ブログのパーマリンク設定
+[permalinks]
+  blog = '/blog/:slug/'
+
+[permalinks.term]
+  tags = '/blog/tags/:slug/'
+
+[permalinks.taxonomy]
+  tags = '/blog/tags/'
+
+# パラメータ
+[params]
+  dateFormat = '2006年1月2日'
+  description = 'IT企業でのエンジニアリング業務経験を活かし、備後地域・しまなみ海道周辺のIT推進、DX改善に興味があります。'
+  author = '瀬尾 敦生'
+  ogImage = '/assets/images/seo.jpg'
+  blogTitle = "s-atsuki's Blog"
+  locale = 'ja_JP'
+  twitterSite = '@atsuki_seo'
+  twitterCreator = '@atsuki_seo'
+
+# サイトマップ設定
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+# マークアップ設定（シンタックスハイライト）
+[markup]
+  [markup.highlight]
+    style = 'monokai'
+    lineNos = false
+    guessSyntax = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
