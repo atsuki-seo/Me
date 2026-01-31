@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="blog-layout blog-layout-3col">
+    {{ partial "blog-sidebar-left.html" . }}
+    <div class="blog-main">
+        <div class="blog-header">
+            <h1><i class="fas fa-search"></i> 検索結果</h1>
+            <p id="search-query-display"></p>
+        </div>
+
+        <a href="/blog/" class="back-link back-link-top" style="margin-top: 0;">
+            <i class="fas fa-arrow-left"></i> ホームに戻る
+        </a>
+
+        <div id="search-results-page">
+            <div class="search-loading">
+                <div class="loading-spinner"></div>
+                <span>検索中...</span>
+            </div>
+        </div>
+
+        <a href="/blog/" class="back-link" style="display: inline-block; margin-top: 30px;">
+            <i class="fas fa-arrow-left"></i> ホームに戻る
+        </a>
+    </div>
+
+    {{ partial "blog-sidebar.html" . }}
+</div>
+{{ end }}

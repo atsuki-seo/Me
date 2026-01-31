@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="blog-layout blog-layout-3col">
+    {{ partial "blog-sidebar-left.html" . }}
+    <div class="blog-main">
+        <div class="blog-header">
+            <h1>タグ一覧</h1>
+            <p>すべてのタグ</p>
+        </div>
+
+        <div class="tags-page">
+            {{ range .Data.Terms.Alphabetical }}
+            <a href="{{ .Page.RelPermalink }}" class="tag-item">
+                <span class="tag-name">{{ .Page.Title }}</span>
+                <span class="tag-count">{{ .Count }}</span>
+            </a>
+            {{ end }}
+        </div>
+
+        {{ partial "footer.html" . }}
+    </div>
+
+    {{ partial "blog-sidebar.html" . }}
+</div>
+{{ end }}

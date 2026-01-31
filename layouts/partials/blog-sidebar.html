@@ -1,0 +1,67 @@
+<aside class="blog-sidebar">
+    <!-- 検索フィールド -->
+    <div class="sidebar-widget">
+        <h3 class="sidebar-widget-title"><i class="fas fa-search"></i> 検索</h3>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="記事を検索..." enterkeyhint="search">
+        </div>
+    </div>
+
+    <!-- タグ一覧 -->
+    <div class="sidebar-widget">
+        <h3 class="sidebar-widget-title"><i class="fas fa-tags"></i> タグ</h3>
+        <div class="tag-cloud">
+            {{ range site.Taxonomies.tags.ByCount }}
+            <a href="{{ .Page.RelPermalink }}" class="sidebar-tag">
+                {{ .Page.Title }} ({{ .Count }})
+            </a>
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- 年月別アーカイブ -->
+    <div class="sidebar-widget">
+        <h3 class="sidebar-widget-title"><i class="fas fa-calendar-alt"></i> アーカイブ</h3>
+        <div class="archive-list">
+            {{ $posts := where .Site.RegularPages "Section" "blog" }}
+            {{ $years := dict }}
+            {{ range $posts }}
+                {{ $year := .Date.Format "2006" }}
+                {{ $month := .Date.Format "01" }}
+                {{ $yearData := index $years $year | default dict }}
+                {{ $monthCount := index $yearData $month | default 0 }}
+                {{ $yearData = merge $yearData (dict $month (add $monthCount 1)) }}
+                {{ $years = merge $years (dict $year $yearData) }}
+            {{ end }}
+
+            {{ range $year, $months := $years }}
+            {{ $yearTotal := 0 }}
+            {{ range $month, $count := $months }}
+                {{ $yearTotal = add $yearTotal $count }}
+            {{ end }}
+            <div class="archive-year">
+                <div class="archive-year-header" onclick="toggleArchive(this)">
+                    <i class="fas fa-chevron-right archive-toggle"></i>
+                    <span>{{ $year }} ({{ $yearTotal }})</span>
+                </div>
+                <ul class="archive-months">
+                    {{ range $month, $count := $months }}
+                    {{ $monthInt := int $month }}
+                    <li>
+                        <a href="/blog/{{ $year }}/{{ $month }}/">{{ $year }}/{{ $monthInt }} ({{ $count }})</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</aside>
+
+<script>
+function toggleArchive(element) {
+    const parent = element.parentElement;
+    parent.classList.toggle('open');
+}
+</script>
+<script src="/js/search.js"></script>

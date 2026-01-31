@@ -1,0 +1,54 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{- if .IsHome -}}{{ .Site.Title }}{{- else if eq .Section "blog" -}}{{ .Title }} | {{ .Site.Params.blogTitle }}{{- else if eq .Section "tags" -}}{{ .Title }} | {{ .Site.Params.blogTitle }}{{- else -}}{{ .Title }}{{- end -}}</title>
+
+<!-- SEO -->
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="robots" content="index, follow">
+<meta name="author" content="{{ .Site.Params.author }}">
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- OGP -->
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:image" content="{{ with .Params.ogImage }}{{ . | absURL }}{{ else }}{{ .Site.Params.ogImage | absURL }}{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:locale" content="{{ .Site.Params.locale | default "ja_JP" }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{- if and .IsPage (eq .Section "blog") }}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+{{- with .Lastmod }}<meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+<meta property="article:author" content="{{ .Site.Params.author }}">
+{{- range .Params.tags }}<meta property="article:tag" content="{{ . }}">
+{{ end }}
+{{- end }}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="twitter:image" content="{{ with .Params.ogImage }}{{ . | absURL }}{{ else }}{{ .Site.Params.ogImage | absURL }}{{ end }}">
+{{- with .Site.Params.twitterSite }}<meta name="twitter:site" content="{{ . }}">{{ end }}
+{{- with .Site.Params.twitterCreator }}<meta name="twitter:creator" content="{{ . }}">{{ end }}
+
+<!-- Favicon -->
+<link rel="icon" href="/assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon_192.png">
+<link rel="apple-touch-icon" sizes="192x192" href="/assets/images/favicon_192.png">
+
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Custom Styles -->
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+
+<!-- Bluesky Embed -->
+<script type="module" src="https://cdn.jsdelivr.net/npm/bsky-embed/dist/bsky-embed.es.js" async></script>
+
+<!-- JSON-LD for Blog Posts -->
+{{- partial "jsonld-article.html" . -}}

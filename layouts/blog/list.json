@@ -1,0 +1,16 @@
+{{- $blogs := where .Site.RegularPages "Section" "blog" -}}
+{{- $blogs = where $blogs "Params.layout" "!=" "search" -}}
+[
+  {{- range $index, $page := $blogs -}}
+    {{- if $index }},{{ end }}
+    {
+      "id": {{ $index }},
+      "title": {{ .Title | jsonify }},
+      "description": {{ .Description | default "" | jsonify }},
+      "url": {{ .Permalink | jsonify }},
+      "date": {{ .Date.Format "2006年1月2日 15時04分" | jsonify }},
+      "tags": {{ .Params.tags | default slice | jsonify }},
+      "content": {{ .Plain | truncate 500 | jsonify }}
+    }
+  {{- end }}
+]

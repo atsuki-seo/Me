@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="blog-layout blog-layout-3col">
+    {{ partial "blog-sidebar-left.html" . }}
+    <div class="blog-main">
+        {{ $pages := where (where .Pages "Params.layout" "!=" "search") "Params.layout" "!=" "archive" }}
+        <div class="blog-header">
+            <h1><i class="fas fa-home"></i> ホーム</h1>
+            <p>ブログ最新記事一覧：{{ len $pages }}件</p>
+        </div>
+
+        {{ $paginator := .Paginate $pages 5 }}
+
+        {{ range $paginator.Pages }}
+        <article class="post-card">
+            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            <div class="post-meta">
+                <span class="post-meta-item">
+                    <i class="fas fa-calendar-alt"></i> {{ .Date.Format "2006年1月2日 15時04分" }}
+                </span>
+                {{ with .GetTerms "tags" }}
+                <span class="post-meta-item">
+                    <i class="fas fa-tags"></i>
+                    {{ range . }}
+                    <a href="{{ .RelPermalink }}" class="tag">{{ .LinkTitle }}</a>
+                    {{ end }}
+                </span>
+                {{ end }}
+            </div>
+            <p class="post-excerpt">{{ .Description }}</p>
+            <a href="{{ .Permalink }}" class="read-more">
+                続きを読む <i class="fas fa-arrow-right"></i>
+            </a>
+        </article>
+        {{ end }}
+
+        {{ partial "pagination.html" (dict "paginator" $paginator) }}
+    </div>
+
+    {{ partial "blog-sidebar.html" . }}
+    {{ partial "footer.html" . }}
+</div>
+{{ end }}

@@ -1,0 +1,29 @@
+{{- $paginator := .paginator -}}
+
+{{ if gt $paginator.TotalPages 1 }}
+<nav class="pagination">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="pagination-link">
+        <i class="fas fa-chevron-left"></i> 前へ
+    </a>
+    {{ else }}
+    <span class="pagination-link pagination-disabled">
+        <i class="fas fa-chevron-left"></i> 前へ
+    </span>
+    {{ end }}
+
+    <span class="pagination-info">
+        {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}
+    </span>
+
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="pagination-link">
+        次へ <i class="fas fa-chevron-right"></i>
+    </a>
+    {{ else }}
+    <span class="pagination-link pagination-disabled">
+        次へ <i class="fas fa-chevron-right"></i>
+    </span>
+    {{ end }}
+</nav>
+{{ end }}

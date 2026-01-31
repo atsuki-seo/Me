@@ -1,0 +1,35 @@
+<aside class="blog-sidebar blog-sidebar-left">
+    <!-- プロフィール -->
+    <div class="sidebar-widget">
+        <h3 class="sidebar-widget-title"><i class="fas fa-user"></i> <a href="/">プロフィール</a></h3>
+        <div class="profile-mini">
+            <img src="/assets/images/seo.jpg" alt="プロフィール写真" class="profile-mini-photo">
+            <div class="profile-mini-name">瀬尾 敦生</div>
+            <div class="profile-mini-title">アプリエンジニア</div>
+        </div>
+        <p class="profile-mini-desc">IT企業でのエンジニアリング業務経験を活かし、備後地域・しまなみ海道周辺のIT推進、DX改善に興味があります。</p>
+    </div>
+
+    <!-- GitHub Contributions -->
+    <div class="sidebar-widget">
+        <h3 class="sidebar-widget-title"><i class="fab fa-github"></i> <a href="https://github.com/atsuki-seo" target="_blank">GitHub</a></h3>
+        <div class="github-contributions">
+            <div class="github-loading" id="github-loading">
+                <div class="loading-spinner"></div>
+                <span>読み込み中...</span>
+            </div>
+            <img src="https://ghchart.rshah.org/626e4a/atsuki-seo" alt="GitHub contributions"
+                 style="display: none;"
+                 onload="this.style.display='block'; document.getElementById('github-loading').style.display='none';"
+                 onerror="this.style.display='none'; var el=document.getElementById('github-loading'); el.textContent='読み込みに失敗しました'; el.className='github-error';" />
+        </div>
+    </div>
+
+    <!-- Bluesky投稿 -->
+    <div class="sidebar-widget">
+        <h3 class="sidebar-widget-title"><i class="fa-brands fa-bluesky"></i> <a href="https://bsky.app/profile/s-atsuki.jp" target="_blank">Bluesky</a></h3>
+        <div class="bluesky-widget">
+            <bsky-embed username="s-atsuki.jp" limit="5" mode="light"></bsky-embed>
+        </div>
+    </div>
+</aside>

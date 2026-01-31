@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    {{- partial "head.html" . -}}
+</head>
+<body>
+    {{- partial "header.html" . -}}
+
+    {{- block "main" . }}{{- end }}
+
+    {{- if and (ne .Section "blog") (ne .Section "tags") }}
+    {{- partial "footer.html" . -}}
+    {{- end }}
+</body>
+</html>
