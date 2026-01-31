@@ -1,0 +1,1085 @@
+/* ブログ用スタイル - 既存のCSS変数を活用 */
+
+/* ブログページのbody - スクロール有効化 */
+body:has(.blog-nav) {
+    padding: 0;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+/* ナビゲーション */
+.blog-nav {
+    background-color: var(--sidebar-bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blog-nav-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+/* ブログタイトル */
+.blog-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: -1px -1px 0 #d0b35d, 1px -1px 0 #d0b35d, -1px 1px 0 #d0b35d, 1px 1px 0 #d0b35d;
+    text-decoration: none;
+}
+
+.blog-title:hover {
+    opacity: 0.9;
+}
+
+/* ナビゲーションボタンコンテナ */
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* ナビゲーションボタン（丸型） */
+.nav-button {
+    width: 36px;
+    height: 36px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.nav-button:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.nav-button.profile-btn {
+    background-color: var(--primary-color);
+}
+
+.nav-button.rss-btn {
+    background-color: #ee802f;
+}
+
+.nav-button.rss-btn:hover {
+    background-color: #d96a1f;
+}
+
+/* ブログコンテナ */
+.blog-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px 40px;
+    min-height: calc(100vh - 50px - 60px);
+}
+
+/* 2カラムレイアウト */
+.blog-layout {
+    display: flex;
+    gap: 40px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px 40px;
+    min-height: calc(100vh - 50px - 60px);
+}
+
+.blog-main {
+    flex: 1;
+    min-width: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 3カラムレイアウト */
+.blog-layout-3col {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    min-height: calc(100vh - 50px - 80px);
+    padding: 20px 40px;
+}
+
+/* フッターを常に全幅で下に配置 */
+.blog-layout-3col .blog-footer {
+    flex-basis: 100%;
+}
+
+/* サイドバー（共通） */
+.blog-sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid #eee;
+    height: calc(100vh - 90px);
+    position: sticky;
+    top: 70px;
+    overflow-y: auto;
+    align-self: flex-start;
+}
+
+/* 左サイドバー */
+.blog-sidebar-left {
+    order: -1;
+}
+
+/* プロフィールミニ */
+.profile-mini {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.profile-mini-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.profile-mini-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.profile-mini-title {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.profile-mini-desc {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.profile-link:hover {
+    color: #b89c4a;
+}
+
+/* SNSリンク */
+.sns-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.sns-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.sns-link:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* 最近の記事 */
+.recent-posts {
+    list-style: none;
+}
+
+.recent-posts li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.recent-posts li:last-child {
+    border-bottom: none;
+}
+
+.recent-posts a {
+    display: block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.4;
+    transition: color 0.2s;
+}
+
+.recent-posts a:hover {
+    color: var(--accent-color);
+}
+
+.recent-post-date {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    margin-top: 4px;
+}
+
+.sidebar-widget {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-widget:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.sidebar-widget-title {
+    font-size: 16px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar-widget-title i {
+    color: var(--accent-color);
+}
+
+.sidebar-widget-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sidebar-widget-title a:hover {
+    color: var(--accent-color);
+}
+
+/* 検索ボックス */
+.search-box input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* 検索結果 */
+#search-results {
+    margin-top: 10px;
+}
+
+.search-result-item {
+    display: block;
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.search-result-item:hover {
+    background-color: #f0f2f5;
+}
+
+.search-result-title {
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 4px;
+}
+
+.search-result-date {
+    color: #888;
+    font-size: 12px;
+}
+
+.search-no-results {
+    color: #888;
+    font-size: 13px;
+    text-align: center;
+    padding: 15px 0;
+}
+
+/* RSSリンク */
+.rss-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ee802f;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.rss-link:hover {
+    color: #d96a1f;
+}
+
+.rss-link i {
+    font-size: 20px;
+}
+
+/* タグクラウド */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.sidebar-tag {
+    background-color: rgba(98, 110, 74, 0.1);
+    color: var(--primary-color);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.sidebar-tag:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* アーカイブ */
+.archive-list {
+    font-size: 14px;
+}
+
+.archive-year {
+    margin-bottom: 5px;
+}
+
+.archive-year-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: color 0.2s;
+}
+
+.archive-year-header:hover {
+    color: var(--accent-color);
+}
+
+.archive-toggle {
+    font-size: 12px;
+    transition: transform 0.2s;
+}
+
+.archive-year.open .archive-toggle {
+    transform: rotate(90deg);
+}
+
+.archive-months {
+    list-style: none;
+    padding-left: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.archive-year.open .archive-months {
+    max-height: 500px;
+}
+
+.archive-months li {
+    padding: 5px 0;
+}
+
+.archive-months a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.archive-months a:hover {
+    color: var(--accent-color);
+}
+
+/* タグページ */
+.tags-page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.tag-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid #eee;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.tag-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+    border-color: var(--accent-color);
+}
+
+.tag-name {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.tag-count {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+/* ブログヘッダー */
+.blog-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #eee;
+}
+
+.blog-header h1 {
+    font-size: 32px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.blog-header p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* 記事カード */
+.post-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
+    border-color: transparent;
+}
+
+.post-card h2 {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.post-card h2 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.post-card h2 a:hover {
+    color: var(--accent-color);
+}
+
+/* 記事メタ情報 */
+.post-meta {
+    font-size: 13px;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.post-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.post-meta i {
+    color: var(--accent-color);
+}
+
+/* タグ */
+.tag {
+    background-color: rgba(98, 110, 74, 0.1);
+    color: var(--primary-color);
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+/* 記事抜粋 */
+.post-excerpt {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* 続きを読むリンク */
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.read-more:hover {
+    color: #b89c4a;
+}
+
+.read-more i {
+    margin-left: 6px;
+    transition: transform 0.2s;
+}
+
+.read-more:hover i {
+    transform: translateX(4px);
+}
+
+/* ページネーション */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.pagination-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.pagination-link:hover {
+    background-color: var(--accent-color);
+}
+
+.pagination-info {
+    color: #666;
+    font-size: 14px;
+}
+
+/* 無効状態のページングリンク */
+.pagination-disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.pagination-disabled:hover {
+    background-color: #ccc;
+}
+
+/* 記事本文ページ */
+.post-content {
+    background: #fff;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid #eee;
+}
+
+.post-header {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.post-header h1 {
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* 記事本文 */
+.post-body {
+    line-height: 1.9;
+    color: #333;
+}
+
+.post-body h2 {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.post-body h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.post-body h4 {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+
+.post-body p {
+    margin-bottom: 20px;
+}
+
+.post-body a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.post-body a:hover {
+    color: #b89c4a;
+}
+
+.post-body ul,
+.post-body ol {
+    margin-bottom: 20px;
+    padding-left: 30px;
+}
+
+.post-body li {
+    margin-bottom: 8px;
+}
+
+.post-body code {
+    background-color: #f0f2f5;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'Menlo', 'Monaco', 'Consolas', monospace;
+    font-size: 14px;
+    color: #e74c3c;
+}
+
+.post-body pre {
+    background-color: #2d3436;
+    color: #dfe6e9;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.post-body pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+    font-size: 14px;
+}
+
+.post-body blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 20px;
+    margin: 25px 0;
+    color: #555;
+    font-style: italic;
+    background-color: #f9f9f9;
+    padding: 20px 20px 20px 25px;
+    border-radius: 0 8px 8px 0;
+}
+
+.post-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+.post-body th,
+.post-body td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.post-body th {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.post-body tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* 記事フッター */
+.post-footer {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: #b89c4a;
+}
+
+.back-link i {
+    transition: transform 0.2s;
+}
+
+.back-link:hover i {
+    transform: translateX(-4px);
+}
+
+.back-link-top {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* 前後の記事ナビゲーション */
+.post-navigation {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.post-nav-link {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.post-nav-link:hover {
+    background-color: #f0f2f5;
+}
+
+.post-nav-prev {
+    text-align: left;
+}
+
+.post-nav-next {
+    text-align: right;
+}
+
+.post-nav-label {
+    display: block;
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+
+.post-nav-title {
+    display: block;
+    font-size: 14px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* フッター */
+.blog-footer {
+    margin: 30px 0 0;
+    padding: 0;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.blog-footer-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.blog-footer p {
+    font-size: 14px;
+    color: #666;
+}
+
+.blog-footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.blog-footer-links a {
+    color: var(--primary-color);
+    font-size: 20px;
+    transition: color 0.2s;
+}
+
+.blog-footer-links a:hover {
+    color: var(--accent-color);
+}
+
+/* GitHub Contributions */
+.github-contributions {
+    overflow-x: auto;
+}
+
+.github-contributions img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* GitHub ローディングUI */
+.github-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+    color: #666;
+    font-size: 13px;
+}
+
+.loading-spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #eee;
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.github-error {
+    color: #e74c3c;
+    font-size: 13px;
+}
+
+/* Blueskyウィジェット */
+.bluesky-widget {
+    /* サイドバー全体でスクロールするため高さ制限なし */
+}
+
+.bluesky-widget bsky-embed {
+    --bsky-font: 'Noto Sans JP', sans-serif;
+}
+
+/* 検索ローディング */
+.search-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: #666;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* 検索エンプティステート */
+.search-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: #888;
+    text-align: center;
+    width: 100%;
+}
+
+.search-empty-state i {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.search-empty-state p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.search-empty-state.error i {
+    color: #e74c3c;
+}
+
+.search-empty-state.error p {
+    color: #e74c3c;
+}
+
+/* レスポンシブ */
+@media (max-width: 1200px) {
+    .blog-layout-3col {
+        gap: 20px;
+    }
+
+    .blog-sidebar {
+        width: 280px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .blog-layout {
+        flex-direction: column;
+        padding: 20px 20px;
+    }
+
+    .blog-sidebar {
+        width: 100%;
+        order: 2;
+        height: auto;
+        position: static;
+    }
+
+    .blog-sidebar-left {
+        display: none;
+    }
+
+    .blog-main {
+        order: 1;
+    }
+
+    .blog-footer {
+        order: 3;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-nav-container {
+        padding: 0 15px;
+    }
+
+    .blog-layout {
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .blog-container {
+        padding: 30px 15px;
+    }
+
+    .blog-header h1 {
+        font-size: 26px;
+    }
+
+    .post-card {
+        padding: 20px;
+    }
+
+    .post-card h2 {
+        font-size: 18px;
+    }
+
+    .post-content {
+        padding: 25px 20px;
+    }
+
+    .post-header h1 {
+        font-size: 22px;
+    }
+
+    .post-body h2 {
+        font-size: 20px;
+    }
+
+    .post-body h3 {
+        font-size: 18px;
+    }
+
+    .post-navigation {
+        flex-direction: column;
+    }
+
+    .post-nav-next {
+        text-align: left;
+    }
+
+    .blog-footer-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
+    }
+}
