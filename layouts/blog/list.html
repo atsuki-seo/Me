@@ -5,7 +5,7 @@
         {{ $pages := where (where .Pages "Params.layout" "!=" "search") "Params.layout" "!=" "archive" }}
         <div class="blog-header">
             <h1><i class="fas fa-home"></i> ホーム</h1>
-            <p>ブログ最新記事一覧：{{ len $pages }}件</p>
+            <p>ブログの記事一覧：{{ len $pages }}件</p>
         </div>
 
         {{ $paginator := .Paginate $pages 5 }}
