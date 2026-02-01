@@ -152,6 +152,18 @@ body:has(.blog-nav) {
     object-fit: cover;
     border: 3px solid var(--accent-color);
     margin-bottom: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+@keyframes flipImage {
+    0% { transform: rotateY(0deg); }
+    50% { transform: rotateY(90deg); }
+    100% { transform: rotateY(0deg); }
+}
+
+.profile-mini-photo.flipping {
+    animation: flipImage 0.5s ease;
 }
 
 .profile-mini-name {

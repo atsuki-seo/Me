@@ -3,7 +3,7 @@
     <div class="sidebar-widget">
         <h3 class="sidebar-widget-title"><i class="fas fa-user"></i> <a href="/">プロフィール</a></h3>
         <div class="profile-mini">
-            <img src="/assets/images/seo.jpg" alt="プロフィール写真" class="profile-mini-photo">
+            <img src="/assets/images/blog-icon192.jpg" alt="プロフィール写真" class="profile-mini-photo" onclick="this.classList.add('flipping'); setTimeout(() => { this.src = this.src.includes('blog-icon192.jpg') ? '/assets/images/seo.jpg' : '/assets/images/blog-icon192.jpg'; }, 250); setTimeout(() => this.classList.remove('flipping'), 500);">
             <div class="profile-mini-name">瀬尾 敦生</div>
             <div class="profile-mini-title">アプリエンジニア</div>
         </div>
