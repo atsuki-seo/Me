@@ -28,7 +28,7 @@ disablePathToLower = true
 # パラメータ
 [params]
   dateFormat = '2006年1月2日'
-  description = 'IT企業でのエンジニアリング業務経験を活かし、備後地域・しまなみ海道周辺のIT推進、DX改善に興味があります。'
+  description = '瀬尾 敦生 | Seo Atsukiのブログです。'
   author = '瀬尾 敦生'
   ogImage = '/assets/images/seo.jpg'
   blogTitle = "s-atsuki's Blog"
