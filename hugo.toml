@@ -31,6 +31,7 @@ disablePathToLower = true
   description = '瀬尾 敦生 | Seo Atsukiのブログです。'
   author = '瀬尾 敦生'
   ogImage = '/assets/images/seo.jpg'
+  blogOgImage = '/assets/images/blog-icon.jpg'
   blogTitle = "s-atsuki's Blog"
   locale = 'ja_JP'
   twitterSite = '@atsuki_seo'
