@@ -11,7 +11,7 @@
 <!-- OGP -->
 <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Params.blogTitle }}{{ else if eq .Section "tags" }}{{ .Title }}タグの一覧{{ else if and .File (eq .File.BaseFileName "search") }}検索結果の一覧{{ else }}{{ .Title }}{{ end }}">
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-<meta property="og:image" content="{{ with .Params.ogImage }}{{ . | absURL }}{{ else if or (eq .Section "blog") (eq .Section "tags") }}{{ .Site.Params.blogOgImage | absURL }}{{ else }}{{ .Site.Params.ogImage | absURL }}{{ end }}">
+<meta property="og:image" content="{{ if .Params.ogImage }}{{ .Params.ogImage | absURL }}{{ else if or (eq .Section "blog") (eq .Section "tags") }}{{ .Site.Params.blogOgImage | absURL }}{{ else }}{{ .Site.Params.ogImage | absURL }}{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:locale" content="{{ .Site.Params.locale | default "ja_JP" }}">
@@ -28,7 +28,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Params.blogTitle }}{{ else if eq .Section "tags" }}{{ .Title }}タグの一覧{{ else if and .File (eq .File.BaseFileName "search") }}検索結果の一覧{{ else }}{{ .Title }}{{ end }}">
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-<meta name="twitter:image" content="{{ with .Params.ogImage }}{{ . | absURL }}{{ else if or (eq .Section "blog") (eq .Section "tags") }}{{ .Site.Params.blogOgImage | absURL }}{{ else }}{{ .Site.Params.ogImage | absURL }}{{ end }}">
+<meta name="twitter:image" content="{{ if .Params.ogImage }}{{ .Params.ogImage | absURL }}{{ else if or (eq .Section "blog") (eq .Section "tags") }}{{ .Site.Params.blogOgImage | absURL }}{{ else }}{{ .Site.Params.ogImage | absURL }}{{ end }}">
 {{- with .Site.Params.twitterSite }}<meta name="twitter:site" content="{{ . }}">{{ end }}
 {{- with .Site.Params.twitterCreator }}<meta name="twitter:creator" content="{{ . }}">{{ end }}
 
